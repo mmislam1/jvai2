@@ -1,54 +1,59 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
 
 interface AuthState {
-  user: { name: string; email: string } | null;
+  user: string | null;
   token: string | null;
+  isAuthenticated: boolean;
   loading: boolean;
   error: string | null;
+}
+
+interface LoginPayload {
+  name: string;
+  email: string;
+  password: string;
+}
+
+interface LoginResponse {
+  token: string;
+  name: string;
 }
 
 const initialState: AuthState = {
   user: null,
   token: null,
+  isAuthenticated: false,
   loading: false,
   error: null,
 };
 
-// Simulated login API (replace with real API)
-const fakeLoginApi = async (data: { name: string; email: string; password: string }) => {
-  return new Promise<{ user: { name: string; email: string }; token: string }>((resolve, reject) => {
-    setTimeout(() => {
-      if (data.password === "password123") {
-        resolve({ user: { name: data.name, email: data.email }, token: "fake-jwt-token" });
-      } else {
-        reject("Invalid password");
-      }
-    }, 1000);
-  });
-};
-
-// Async thunk for login
-export const loginUser = createAsyncThunk(
-  "auth/loginUser",
-  async (userData: { name: string; email: string; password: string }, { rejectWithValue }) => {
-    try {
-      const response = await fakeLoginApi(userData);
-      return response;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+export const loginUser = createAsyncThunk<
+  LoginResponse,
+  LoginPayload,
+  { rejectValue: string }
+>("auth/loginUser", async (data, thunkAPI) => {
+  try {
+    const response = await axios.post<LoginResponse>(
+      "https://example.com/api/login",
+      data
+    );
+    return response.data;
+  } catch (error: any) {
+    return thunkAPI.rejectWithValue(error.response?.data?.message || "Login failed");
   }
-);
+});
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout: (state) => {
+    logout(state) {
       state.user = null;
       state.token = null;
+      state.isAuthenticated = false;
       state.error = null;
-      state.loading = false;
     },
   },
   extraReducers: (builder) => {
@@ -57,14 +62,15 @@ const authSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<{ user: { name: string; email: string }; token: string }>) => {
+      .addCase(loginUser.fulfilled, (state, action: PayloadAction<LoginResponse>) => {
         state.loading = false;
-        state.user = action.payload.user;
+        state.user = action.payload.name;
         state.token = action.payload.token;
+        state.isAuthenticated = true;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string;
+        state.error = action.payload || "Login failed";
       });
   },
 });
