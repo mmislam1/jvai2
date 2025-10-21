@@ -8,6 +8,14 @@
 
 
 
-.heading-large {
+.heading {
   @apply font-inter font-bold text-[36px] leading-[100%] tracking-[0%] text-center align-middle;
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 }
