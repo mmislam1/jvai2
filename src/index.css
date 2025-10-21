@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/700.css";
+
+
+
+.heading-large {
+  @apply font-inter font-bold text-[36px] leading-[100%] tracking-[0%] text-center align-middle;
+}
