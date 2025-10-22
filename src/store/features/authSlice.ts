@@ -1,6 +1,7 @@
 
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import api from "../../api/apiInstance";
 
 interface AuthState {
   user: string | null;
@@ -35,8 +36,8 @@ export const loginUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/loginUser", async (data, thunkAPI) => {
   try {
-    const response = await axios.post<LoginResponse>(
-      "https://example.com/api/login",
+    const response = await api.post<LoginResponse>(
+      "/api/login",
       data
     );
     return response.data;
