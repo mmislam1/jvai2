@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import { loginUser } from "../store/features/authSlice";
@@ -17,7 +17,11 @@ export default function ForgotPassWord() {
         e.preventDefault();
         dispatch(requestResetOTP(email));
     };
-
+    useEffect(
+            ()=>{if(isAuthenticated){
+                navigate('/dashboard')
+            }
+            },[isAuthenticated])
     return (
         <SigninLayout>
             <form

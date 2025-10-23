@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/store";
 import { loginUser } from "../store/features/authSlice";
@@ -18,6 +18,12 @@ export default function VerifyPassword() {
         e.preventDefault();
         dispatch(VerifyEmail({email:email,otp:otp}));
     };
+
+    useEffect(
+        ()=>{if(isAuthenticated){
+            navigate('/dashboard')
+        }
+        },[isAuthenticated])
 
     return (
         <SigninLayout>
