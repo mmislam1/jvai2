@@ -30,7 +30,7 @@ export const requestResetOTP = createAsyncThunk(
 );
 
 
-export const verifyOTP = createAsyncThunk(
+export const VerifyEmail = createAsyncThunk(
   "passwordReset/verifyOTP",
   async (
     { email, otp }: { email: string; otp: string },
