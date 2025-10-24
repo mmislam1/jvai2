@@ -34,9 +34,10 @@ export default function VerifyPassword() {
                 <h1 className="heading">Verify Email</h1>
 
                 <input
-                    type="number"
+                    type="email"
                     value={email}
-                    onChange={(e) => setOtp(e.target.value)}
+                    placeholder="Enter your Email"
+                    onChange={(e) => setEmail(e.target.value)}
                     className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                     required
                 />
