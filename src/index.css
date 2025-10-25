@@ -5,10 +5,15 @@
 
 @import "@fontsource/inter/400.css";
 @import "@fontsource/inter/700.css";
+@import "@fontsource/plus-jakarta-sans/600.css"; /* SemiBold */
+
 
 body {
-  @apply font-inter;
+  @apply font-sans text-[18px] leading-[28px];
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
 }
+
 
 .heading {
   @apply font-inter font-bold text-[36px] leading-[100%] tracking-[0%] text-center align-middle;

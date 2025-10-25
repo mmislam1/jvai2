@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard'
 import ResetPassWord from './pages/resetPassword';
 import ForgotPassword from './pages/forgotPassword';
 import VerifyEmail from './pages/verifyEmail';
+import Settings from './pages/settings';
 
 function App() {
   return (
@@ -15,6 +16,11 @@ function App() {
       <Route path="/resetPassword" element={<ResetPassWord/>} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
       <Route path="/verifyEmail" element={<VerifyEmail />} />
+      <Route path="/verifyEmail" element={<VerifyEmail />} />
+      <Route path="/verifyEmail" element={<VerifyEmail />} />
+      <Route path="/verifyEmail" element={<VerifyEmail />} />
+      <Route path="/verifyEmail" element={<VerifyEmail />} />
+      <Route path="/settings" element={<Settings/>} />
       <Route
         path="/"
         element={
