@@ -5,6 +5,7 @@ import InfoTabs from '../components/infoTabs'
 import { RootState } from '../store/store';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import BarChart from '../components/BarChart';
 
 const Dashboard = () => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
@@ -17,6 +18,9 @@ const Dashboard = () => {
     
       <Sidebar>
         <InfoTabs/>
+        <div className="flex flex-col items-center justify-center ">
+        <BarChart data={[{ label: 'may', value: 99 },{ label: 'may', value: 79 },{ label: 'may', value: 29 }]} title={'Test'}></BarChart>
+        </div>
       </Sidebar>
     
   )

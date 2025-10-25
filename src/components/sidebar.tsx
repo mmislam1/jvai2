@@ -96,10 +96,9 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       </div>
       <div className="flex flex-col p-2 bg-[rgba(19,76,156,.1)] w-[calc(100vw-300px)]">
         <UserBar></UserBar>
-        <div className="flex flex-row flex-1 items-start justify-between rounded-lg shadow-lg mx-4 my-2">
+        <div className="flex flex-col flex-1 items-start justify-start gap-6 rounded-lg shadow-lg mx-4 my-2 ">
           {children}
         </div>
-
       </div>
     </div>
   );
