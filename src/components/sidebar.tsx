@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Navigate, NavLink, useNavigate } from 'react-router-dom'
 import { useLocation, Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
 import { IconType } from 'react-icons';
 import UserBar from './userBar';
+import { useDispatch } from 'react-redux';
+import { logout } from '../store/features/authSlice';
 
 
 interface SidebarProps {
@@ -59,7 +61,8 @@ const items: Item[] = [
 
 const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   const loc = useLocation()
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   return (
     <div className="flex flex-row ">
       <div className="flex flex-col p-4 h-[100vh] w-[300px] shadow-md">
@@ -78,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
                   className={`w-full h-[50px] flex flex-row items-center justify-start ${!isActive ? "text-gray-500" : "text-white"
                     } p-4 ${isActive ? "bg-[rgba(19,76,156,1)]" : ""} rounded-lg`}
                 >
-                  <IconComponent className={`p-2 ${isActive ?  'text-white':'text-gray-500'} w-[40px] h-[40px]`} />
+                  <IconComponent className={`p-2 ${isActive ? 'text-white' : 'text-gray-500'} w-[40px] h-[40px]`} />
                   <h2>{item.title}</h2>
                 </div>
               </NavLink>
@@ -86,10 +89,9 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           })}
         </div>
         <div className='flex flex-col items-center justify-end flex-1 pb-4'>
-          <NavLink to='/login'>
+          <button onClick={() => { dispatch(logout()); navigate('/login') }}>
             <h3 className='text-red-600'>Log Out</h3>
-          </NavLink>
-
+          </button>
         </div>
       </div>
       <div className="flex flex-col p-2 bg-[rgba(19,76,156,.1)] w-[calc(100vw-300px)]">
@@ -97,7 +99,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         <div className="flex flex-row flex-1 items-start justify-between rounded-lg shadow-lg mx-4 my-2">
           {children}
         </div>
-        
+
       </div>
     </div>
   );

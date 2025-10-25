@@ -21,12 +21,7 @@ function App() {
       <Route path="/verifyEmail" element={<VerifyEmail />} />
       <Route path="/verifyEmail" element={<VerifyEmail />} />
       <Route path="/settings" element={<Settings/>} />
-      <Route
-        path="/"
-        element={
-          <Dashboard/>
-        }
-      />
+      <Route path="/" element={<Dashboard/>}/>
     </Routes>
   );
 }

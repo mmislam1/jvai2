@@ -19,7 +19,7 @@ export default function ForgotPassWord() {
     };
     useEffect(
             ()=>{if(isAuthenticated){
-                navigate('/dashboard')
+                navigate('/')
             }
             },[isAuthenticated])
     return (

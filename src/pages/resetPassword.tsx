@@ -25,7 +25,7 @@ export default function ResetPassWord() {
     };
     useEffect(
             ()=>{if(isAuthenticated){
-                navigate('/dashboard')
+                navigate('/')
             }
             },[isAuthenticated])
     return (

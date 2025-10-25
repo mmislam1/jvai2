@@ -11,7 +11,7 @@ export default function Login() {
     const navigate = useNavigate()
     const { loading, error, isAuthenticated } = useSelector((state: RootState) => state.auth);
     if(isAuthenticated){
-        navigate('/Dashboard')
+        navigate('/')
     }
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -23,7 +23,7 @@ export default function Login() {
     };
     useEffect(
             ()=>{if(isAuthenticated){
-                navigate('/dashboard')
+                navigate('/')
             }
             },[isAuthenticated])
     return (

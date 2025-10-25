@@ -21,7 +21,7 @@ export default function VerifyPassword() {
 
     useEffect(
         ()=>{if(isAuthenticated){
-            navigate('/dashboard')
+            navigate('/')
         }
         },[isAuthenticated])
 

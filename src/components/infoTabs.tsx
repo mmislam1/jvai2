@@ -11,7 +11,23 @@ const data: data[] = [
         title: 'Monthly Revenue',
         info: '$12,101',
         color: 'rgba(19,76,156,1)'
-    }
+    },
+    {
+        title: 'Monthly Revenue',
+        info: '$12,101',
+        color: 'rgba(151, 19, 156, 1)'
+    },
+    {
+        title: 'Monthly Revenue',
+        info: '$12,101',
+        color: 'rgba(19, 156, 99, 1)'
+    },
+    {
+        title: 'Monthly Revenue',
+        info: '$12,101',
+        color: 'rgba(156, 19, 19, 1)'
+    },
+
 ]
 
 const InfoTabs = () => {
@@ -37,17 +53,6 @@ const InfoTabs = () => {
                     </div>
                 )
             })}
-
-            <div className="flex flex-row p-2 rounded-xl bg-white items-center justify-center h-[144px] w-[368px]">
-
-            </div>
-            <div className="flex flex-row p-2 rounded-xl bg-white items-center justify-center h-[144px] w-[368px]">
-
-            </div>
-            <div className="flex flex-row p-2 rounded-xl bg-white items-center justify-center h-[144px] w-[368px]">
-
-            </div>
-
         </div>
     )
 }
