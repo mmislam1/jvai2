@@ -30,25 +30,25 @@ const items: Item[] = [
   {
     id: 2,
     title: 'User Management',
-    link: '/user',
+    link: '/userManagement',
     logo: FaHome
   },
   {
     id: 3,
     title: 'Subscription & Billing',
-    link: '/subscription',
+    link: '/subscriptionAndBilling',
     logo: FaHome
   },
   {
     id: 4,
     title: 'Content Moderation',
-    link: '/content',
+    link: '/contentModeration',
     logo: FaHome
   },
   {
     id: 5,
     title: 'Add Course',
-    link: '/add_course',
+    link: '/addCourse',
     logo: FaHome
   },
   {
