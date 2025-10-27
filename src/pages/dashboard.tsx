@@ -72,7 +72,7 @@ const Dashboard = () => {
               title={"Test"}
             ></BarChart>
           </div>
-          <div className="w-full flex-[1] md:flex-[4] bg-white flex flex-col items-center h-full justify-start rounded-xl px-4 ">
+          <div className="w-full flex-[1] md:flex-[4] bg-white flex flex-col items-center h-full justify-start rounded-xl px-4 pb-4">
             <div className="flex flex-row border-b border-gray-200 h-[80px] w-full mb-2 justify-between items-center">
               <div className="flex flex-row justify-center items-start  ">
                 <h2 className="text-black text-mg">RECENT NOTIFICATIONS</h2>
