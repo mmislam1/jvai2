@@ -6,6 +6,7 @@ import { IconType } from 'react-icons';
 import UserBar from './userBar';
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/features/authSlice';
+import Icon from './icon';
 
 
 interface SidebarProps {
@@ -68,7 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       <div className="flex flex-col p-4 h-[100vh] w-[300px] shadow-md">
         <div className="flex flex-col gap-6 ">
           <div className="flex flex-col items-center justify-center mt-10 mb-4">
-            {(FaHome as React.FC).call(null, { className: 'text-[rgba(19,76,156,1)] w-[60px] h-[60px]' })}
+            <Icon icon={FaHome} className='text-[rgba(19,76,156,1)] w-[60px] h-[60px]'/> 
 
             <h1 className='text-[rgba(0, 0, 0, 1)] text-2xl'>Learning App</h1>
           </div>

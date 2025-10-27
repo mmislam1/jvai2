@@ -32,10 +32,10 @@ const data: data[] = [
 
 const InfoTabs = () => {
     return (
-        <div className="flex flex-row gap-6 justify-between flex-wrap w-full">
+        <div className="flex flex-row gap-6 md:items-center justify-between flex-wrap w-full">
             {data.map((item) => {
                 return (
-                    <div className="flex flex-row p-2 rounded-xl bg-white items-center justify-center h-[144px] w-[368px]">
+                    <div className="flex flex-row p-2 rounded-xl bg-white items-center justify-center h-[144px] w-full md:w-[368px] ">
                         <div className="flex flex-[2] h-full bg-white items-center justify-center ">
                             <div className={`flex flex-row items-center justify-center rounded-xl h-[100px] w-[100px]`} style={{ backgroundColor: item.color, opacity:.2}}>
 
