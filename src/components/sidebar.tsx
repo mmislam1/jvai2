@@ -1,13 +1,13 @@
 import React, { ReactNode } from 'react'
 import { Navigate, NavLink, useNavigate } from 'react-router-dom'
 import { useLocation, Link } from 'react-router-dom'
-import { FaHome } from 'react-icons/fa'
+import { FaDoorOpen, FaHome } from 'react-icons/fa'
 import { IconType } from 'react-icons';
 import UserBar from './userBar';
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/features/authSlice';
 import Icon from './icon';
-
+import { useDevice } from '../hooks/useDevice';
 
 interface SidebarProps {
   children: ReactNode;
@@ -64,9 +64,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   const loc = useLocation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const device=useDevice()
+
+
   return (
     <div className="flex flex-row ">
-      <div className="flex flex-col p-4 h-[100vh] w-[300px] shadow-md">
+      {(device!=='mobile')&&(<div className="flex flex-col p-4 h-[100vh] w-[300px] shadow-md">
         <div className="flex flex-col gap-6 ">
           <div className="flex flex-col items-center justify-center mt-10 mb-4">
             <Icon icon={FaHome} className='text-[rgba(19,76,156,1)] w-[60px] h-[60px]'/> 
@@ -90,12 +93,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           })}
         </div>
         <div className='flex flex-col items-center justify-end flex-1 pb-4'>
-          <button onClick={() => { dispatch(logout()); navigate('/login') }}>
-            <h3 className='text-red-600'>Log Out</h3>
+          <button className="flex flex-row items-center justify-center text-red-600 gap-2" onClick={() => { dispatch(logout()); navigate('/login') }}>
+            <Icon icon={FaDoorOpen}></Icon><h3 className='text-red-600'>Log Out</h3>
           </button>
         </div>
-      </div>
-      <div className="flex flex-col p-2 bg-[rgba(19,76,156,.1)] w-[calc(100vw-300px)]">
+      </div>)}
+      <div className={`flex flex-col  bg-[rgba(19,76,156,.1)] ${device!=='mobile'?'w-[calc(100vw-300px)] p-2':'w-[100vw]'}`}>
         <UserBar></UserBar>
         <div className="flex flex-col flex-1 items-start justify-start gap-6 rounded-lg shadow-lg mx-4 my-2 ">
           {children}

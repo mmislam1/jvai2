@@ -42,12 +42,12 @@ const Dashboard = () => {
                 <h2 className="text-black text-md font-bold">USAGE ANALYTICS</h2>
               </div>
               <div className="flex flex-row">
-                <p className="text-gray-600 text-md">1 jan 24 - 5 jan 25</p>
+                <p className="text-gray-600 text-sm">1 jan 24 - 5 jan 25</p>
               </div>
               <div className="flex flex-row">
-                <p className="text-gray-600 text-md pe-4">Month</p>
-                <p className="text-gray-600 text-md pe-4">Year</p>
-                <p className="text-gray-600 text-md"></p>
+                <p className="text-gray-600 text-sm pe-4">Month</p>
+                <p className="text-gray-600 text-sm pe-4">Year</p>
+                <p className="text-gray-600 text-sm"></p>
               </div>
             </div>
             <BarChart
