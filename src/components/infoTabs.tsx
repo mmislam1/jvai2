@@ -15,25 +15,25 @@ const data: data[] = [
         title: 'Monthly Revenue',
         info: '$12,101',
         icon: FaCrown,
-        color: 'rgba(19,76,156,1)'
+        color: '#0048e4'
     },
     {
         title: 'Monthly Revenue',
         info: '$12,101',
         icon: FaCrown,
-        color: 'rgba(151, 19, 156, 1)'
+        color: '#ff0000'
     },
     {
         title: 'Monthly Revenue',
         info: '$12,101',
         icon: FaCrown,
-        color: 'rgba(19, 156, 99, 1)'
+        color: '#00854d'
     },
     {
         title: 'Monthly Revenue',
         info: '$12,101',
         icon: FaCrown,
-        color: 'rgba(156, 19, 19, 1)'
+        color: '#c500a4'
     },
 
 ]
@@ -45,8 +45,8 @@ const InfoTabs = () => {
                 return (
                     <div className="flex flex-row p-2 rounded-xl bg-white items-center justify-center h-[144px] w-full md:w-[368px] ">
                         <div className="flex flex-[2] h-full bg-white items-center justify-center ">
-                            <div className={`flex flex-row items-center justify-center rounded-xl h-[100px] w-[100px]`} style={{ backgroundColor: item.color, opacity:.2}}>
-                                <Icon icon={FaCrown}></Icon>
+                            <div className={`flex flex-row items-center justify-center rounded-xl h-[100px] w-[100px]`} style={{ backgroundColor: `${item.color}33`, color:item.color}}>
+                                <Icon icon={FaCrown} className={`h-[80px] w-[80px] `}></Icon>
                             </div>
                         </div>
                         <div className="flex flex-col flex-[3] h-full bg-white items-left justify-center ">
